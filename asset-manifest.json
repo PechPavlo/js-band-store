@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/js-band-store/static/css/main.b5b9d2d3.chunk.css",
+    "main.js": "/js-band-store/static/js/main.3d69fe99.chunk.js",
+    "main.js.map": "/js-band-store/static/js/main.3d69fe99.chunk.js.map",
+    "runtime-main.js": "/js-band-store/static/js/runtime-main.f08faff7.js",
+    "runtime-main.js.map": "/js-band-store/static/js/runtime-main.f08faff7.js.map",
+    "static/js/2.b76a56de.chunk.js": "/js-band-store/static/js/2.b76a56de.chunk.js",
+    "static/js/2.b76a56de.chunk.js.map": "/js-band-store/static/js/2.b76a56de.chunk.js.map",
+    "index.html": "/js-band-store/index.html",
+    "static/css/main.b5b9d2d3.chunk.css.map": "/js-band-store/static/css/main.b5b9d2d3.chunk.css.map",
+    "static/js/2.b76a56de.chunk.js.LICENSE.txt": "/js-band-store/static/js/2.b76a56de.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f08faff7.js",
+    "static/js/2.b76a56de.chunk.js",
+    "static/css/main.b5b9d2d3.chunk.css",
+    "static/js/main.3d69fe99.chunk.js"
+  ]
+}
