@@ -10,6 +10,8 @@ const initUsers = [
   },
 ];
 
+
+
 const defaultState = {
   myEvents: [],
   users: [...initUsers],
