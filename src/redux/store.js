@@ -6,11 +6,9 @@ import reducer from './reducers';
 const initUsers = [
   {
     id: 'a6a136dc-fd2b-4073-a1ae-214589cc73e6',
-    data: { isAdmin: true, name: 'test', password: '' }
+    data: { isAdmin: true, name: 'test', password: '' },
   },
 ];
-
-
 
 const defaultState = {
   myEvents: [],
