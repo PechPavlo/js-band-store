@@ -3,23 +3,10 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import reducer from './reducers';
 
-const initUsers = [
-  {
-    id: 'a6a136dc-fd2b-4073-a1ae-214589cc73e6',
-    data: { isAdmin: true, name: 'test', password: '' },
-  },
-];
-
 const defaultState = {
-  myEvents: [],
-  users: [...initUsers],
-  currentUser: initUsers[0],
-  filteredByUser: 'All',
-  isAuthorized: true,
-  eventToAdd: null,
-  eventToDelete: null,
-  isEventsUpdated: false,
-  isUsersUpdated: false,
+  isLoading: true,
+  isAuthorized: false,
+  user: {},
   error: null,
 };
 
