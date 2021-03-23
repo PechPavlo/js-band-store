@@ -1,27 +1,61 @@
-export const getUsersStarted = () => ({
-  type: 'GET_USERS_STARTED',
+import axios from 'axios';
+
+axios.defaults.baseURL = 'https://js-band-store-api.glitch.me/';
+
+export const authorizeUserStarted = () => ({
+  type: 'AUTHORIZE_USER_STARTED',
 });
 
-export const getUsersSuccess = (users) => ({
-  type: 'GET_USERS_SUCCESS',
+export const authorizeUserSuccess = (users) => ({
+  type: 'AUTHORIZE_USER_SUCCESS',
   payload: users,
 });
 
-export const getUsersFailure = (error) => ({
-  type: 'GET_USERS_FAILURE',
+export const authorizeUserFailure = (error) => ({
+  type: 'AUTHORIZE_USER_FAILURE',
   payload: {
     error,
   },
 });
 
-export const getUsers = () => (dispatch) => {
-  dispatch(getUsersStarted());
+export const getBooksCatalogStarted = () => ({
+  type: 'GET_BOOK_CATALOG_STARTED',
+});
 
-  fetch('http://158.101.166.74:8080/api/data/pavlo_pechenevskyi/users', {
-    method: 'get',
-  })
-    .then((res) => res.json())
-    .then((res) => res.map((elem) => ({ id: elem.id, data: JSON.parse(elem.data.replaceAll('\\"', '"')) })))
-    .then((res) => dispatch(getUsersSuccess(res)))
-    .catch((error) => dispatch(getUsersFailure(error.message)));
+export const getBooksCatalogSuccess = (books) => ({
+  type: 'GET_BOOK_CATALOG_SUCCESS',
+  payload: books,
+});
+
+export const getBooksCatalogFailure = (error) => ({
+  type: 'GET_BOOK_CATALOG_FAILURE',
+  payload: {
+    error,
+  },
+});
+
+export const getBooksCatalog = (token) => (dispatch) => {
+  dispatch(getBooksCatalogStarted());
+  axios
+    .get('books', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((res) => {
+      dispatch(getBooksCatalogSuccess(res.data));
+    })
+    .catch((error) => dispatch(getBooksCatalogFailure(error.message)));
+};
+
+export const authorizeUser = (userName) => (dispatch) => {
+  dispatch(authorizeUserStarted());
+  axios
+    .post('signin', { username: userName })
+    .then((res) => {
+      localStorage.pechPavloBookStore = JSON.stringify(res.data);
+      dispatch(authorizeUserSuccess(res.data));
+      dispatch(getBooksCatalog(res.data.token));
+    })
+    .catch((error) => dispatch(authorizeUserFailure(error.message)));
 };

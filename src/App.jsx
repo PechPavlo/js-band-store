@@ -1,8 +1,10 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import LoginPage from './components/LoginPage/LoginPage';
 
 function App() {
-  const isLoading = useSelector((state) => state.isLoading);
+  const { isLoading, user, booksCatalog } = useSelector((state) => state);
+  console.log('app', booksCatalog);
   if (isLoading) {
     return (
       <div>
@@ -13,7 +15,8 @@ function App() {
   }
   return (
     <div className="App">
-      <h1>JS Band Store</h1>
+      {/* <h1>JS Band Store</h1> */}
+      {!user.isAuthorized && <LoginPage />}
     </div>
   );
 }
