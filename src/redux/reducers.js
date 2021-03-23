@@ -1,26 +1,64 @@
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'GET_USERS_STARTED':
+    case 'AUTHORIZE_USER_STARTED':
       return {
         ...state,
-        isUsersUpdated: false,
-        error: null,
+        user: {
+          ...state.user,
+          isAuthorized: false,
+          error: null,
+        },
       };
 
-    case 'GET_USERS_SUCCESS':
+    case 'AUTHORIZE_USER_SUCCESS':
       return {
         ...state,
-        isUsersUpdated: true,
-        isAuthorized: false,
-        currentUser: action.payload[0],
-        users: action.payload,
+        user: {
+          ...state.user,
+          isAuthorized: true,
+          userName: action.payload.username,
+          avatar: action.payload.avatar,
+          token: action.payload.token,
+        },
       };
 
-    case 'GET_USERS_FAILURE':
+    case 'AUTHORIZE_USER_FAILURE':
       return {
         ...state,
-        isUsersUpdated: true,
-        error: action.payload.error,
+        user: {
+          ...state.user,
+          isAuthorized: true,
+          error: action.payload.error,
+        },
+      };
+    case 'GET_BOOK_CATALOG_STARTED':
+      return {
+        ...state,
+        booksCatalog: {
+          ...state.booksCatalog,
+          isLoading: true,
+          error: null,
+        },
+      };
+
+    case 'GET_BOOK_CATALOG_SUCCESS':
+      return {
+        ...state,
+        booksCatalog: {
+          ...state.booksCatalog,
+          isLoading: false,
+          books: action.payload,
+        },
+      };
+
+    case 'GET_BOOK_CATALOG_FAILURE':
+      return {
+        ...state,
+        booksCatalog: {
+          ...state.booksCatalog,
+          isLoading: false,
+          error: action.payload.error,
+        },
       };
 
     default:

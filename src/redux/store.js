@@ -4,9 +4,18 @@ import thunk from 'redux-thunk';
 import reducer from './reducers';
 
 const defaultState = {
-  isLoading: true,
-  isAuthorized: false,
-  user: {},
+  isLoading: false,
+  user: {
+    isAuthorized: false,
+    isLoading: false,
+    userName: 'John',
+    error: null,
+  },
+  booksCatalog: {
+    books: [],
+    isLoading: false,
+    error: null,
+  },
   error: null,
 };
 
