@@ -1,0 +1,29 @@
+.header {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header-authorization {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header-cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart-button {
+background-color: inherit;
+border: none;
+display: flex;
+align-items: center;
+}
+
+.shopping-cart {
+
+width: 30px;
+}

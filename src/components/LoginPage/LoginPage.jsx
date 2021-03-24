@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { authorizeUser } from '../../redux/actions';
 import './LoginPage.scss';
 
@@ -21,7 +21,7 @@ const LoginPage = () => {
   };
   return (
     <div className="login-page">
-      <h1>JS Band Store</h1>
+      <h2>JS Band Store</h2>
       <form id="authorization" onSubmit={haldleFormSubmit}>
         {!isNameValid && (
           <span className="name-error">Username is not valid</span>
@@ -40,7 +40,7 @@ const LoginPage = () => {
             }}
           />
         </label>
-        <button type="submit">click</button>
+        <button type="submit">Log In</button>
       </form>
     </div>
   );

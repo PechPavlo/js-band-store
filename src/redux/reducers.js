@@ -61,6 +61,18 @@ const reducer = (state, action) => {
         },
       };
 
+    case 'SIGN_OUT':
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          isAuthorized: false,
+          userName: '',
+          avatar: '',
+          token: '',
+        },
+      };
+
     default:
       return { ...state };
   }

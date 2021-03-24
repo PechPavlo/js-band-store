@@ -3,12 +3,16 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import reducer from './reducers';
 
+const initUser = localStorage.pechPavloBookStore && JSON.parse(localStorage.pechPavloBookStore);
+
 const defaultState = {
   isLoading: false,
   user: {
-    isAuthorized: false,
+    isAuthorized: !!initUser,
     isLoading: false,
-    userName: 'John',
+    userName: initUser?.username || '',
+    token: initUser?.token || '',
+    avatar: initUser?.avatar || '',
     error: null,
   },
   booksCatalog: {
@@ -16,6 +20,12 @@ const defaultState = {
     isLoading: false,
     error: null,
   },
+  book: {
+    isActive: false,
+    isLoading: false,
+    error: null,
+  },
+  cart: [],
   error: null,
 };
 
@@ -31,7 +41,6 @@ const store = createStore(
   reducer,
   defaultState,
   enhancer,
-  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 
 export default store;
