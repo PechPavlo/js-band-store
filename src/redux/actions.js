@@ -59,3 +59,7 @@ export const authorizeUser = (userName) => (dispatch) => {
     })
     .catch((error) => dispatch(authorizeUserFailure(error.message)));
 };
+
+export const signOut = () => ({
+  type: 'SIGN_OUT',
+});
