@@ -48,6 +48,36 @@ export const getBooksCatalog = (token) => (dispatch) => {
     .catch((error) => dispatch(getBooksCatalogFailure(error.message)));
 };
 
+export const getBookDetailsStarted = () => ({
+  type: 'GET_BOOK_DETAILS_STARTED',
+});
+
+export const getBookDetailsSuccess = (book) => ({
+  type: 'GET_BOOK_DETAILS_SUCCESS',
+  payload: book,
+});
+
+export const getBookDetailsFailure = (error) => ({
+  type: 'GET_BOOK_DETAILS_FAILURE',
+  payload: {
+    error,
+  },
+});
+
+export const getBookDetails = (token, id) => (dispatch) => {
+  dispatch(getBookDetailsStarted());
+  axios
+    .get(`books/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((res) => {
+      dispatch(getBookDetailsSuccess(res.data));
+    })
+    .catch((error) => dispatch(getBookDetailsFailure(error.message)));
+};
+
 export const authorizeUser = (userName) => (dispatch) => {
   dispatch(authorizeUserStarted());
   axios
@@ -59,6 +89,18 @@ export const authorizeUser = (userName) => (dispatch) => {
     })
     .catch((error) => dispatch(authorizeUserFailure(error.message)));
 };
+
+export const redirectToMain = () => ({
+  type: 'REDIRECT_TO_MAIN',
+});
+
+export const redirectToCart = () => ({
+  type: 'REDIRECT_TO_CART',
+});
+
+export const addToCart = (book) => ({
+  type: 'ADD_TO_CART',
+});
 
 export const signOut = () => ({
   type: 'SIGN_OUT',

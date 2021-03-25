@@ -1,27 +1,30 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getBookDetails } from '../../redux/actions';
 import './BookCard.scss';
 
 const BookCard = (props) => {
-  const { book } = props;
+  const { cardBook } = props;
+  const { user } = useSelector((state) => state);
   const dispatch = useDispatch();
   return (
     <article className="book-card">
       <div className="book-card_image-container">
-        <img src={book.cover} alt={`cover of ${book.title}`} />
+        <img src={cardBook.cover} alt={`cover of ${cardBook.title}`} />
       </div>
       <div className="book-card-content">
-        <h3 className="book-card_title">{`${book.title}`}</h3>
-        <p className="book-card_subtitle">{`${book.author}`}</p>
+        <h3 className="book-card_title">{`${cardBook.title}`}</h3>
+        <p className="book-card_subtitle">{`${cardBook.author}`}</p>
       </div>
       <div className="book-card-footer">
-        <span className="book-card_price">{`${book.price}$`}</span>
+        <span className="book-card_price">{`${cardBook.price}$`}</span>
         <button
           className="book-card_button"
           type="button"
           onClick={() => {
-            console.log('book view');
+            dispatch(getBookDetails(user.token, cardBook.id));
+            // console.log('book view', user.token, cardBook.id);
           }}
         >
           View

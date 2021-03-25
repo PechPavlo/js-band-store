@@ -31,6 +31,7 @@ const reducer = (state, action) => {
           error: action.payload.error,
         },
       };
+
     case 'GET_BOOK_CATALOG_STARTED':
       return {
         ...state,
@@ -58,6 +59,68 @@ const reducer = (state, action) => {
           ...state.booksCatalog,
           isLoading: false,
           error: action.payload.error,
+        },
+      };
+    case 'GET_BOOK_DETAILS_STARTED':
+      return {
+        ...state,
+        book: {
+          ...state.book,
+          isLoading: true,
+          error: null,
+        },
+      };
+
+    case 'GET_BOOK_DETAILS_SUCCESS':
+      return {
+        ...state,
+        book: {
+          ...state.book,
+          isActive: true,
+          isLoading: false,
+          details: action.payload,
+        },
+      };
+
+    case 'GET_BOOK_DETAILS_FAILURE':
+      return {
+        ...state,
+        book: {
+          ...state.book,
+          isLoading: false,
+          error: action.payload.error,
+        },
+      };
+
+    case 'REDIRECT_TO_MAIN':
+      return {
+        ...state,
+        book: {
+          ...state.book,
+          details: {},
+          isActive: false,
+        },
+        cart: {
+          ...state.cart,
+          isActive: false,
+        },
+      };
+
+    case 'REDIRECT_TO_CART':
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          isActive: true,
+        },
+      };
+
+    case 'ADD_TO_CART':
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          isActive: true,
         },
       };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { signOut } from '../../redux/actions';
+import { signOut, redirectToMain, redirectToCart } from '../../redux/actions';
 import './Header.scss';
 import cartIcon from '../../assets/image/icon/shopping-cart.svg';
 
@@ -22,11 +22,25 @@ const Header = () => {
       </div>
       <hr />
       <div className="header-cart">
-        <h1>JS Band Store</h1>
-        <button type="button" className="cart-button">
+        <button
+          className="to-main-button"
+          type="button"
+          onClick={() => {
+            dispatch(redirectToMain());
+          }}
+        >
+          <h1>JS Band Store</h1>
+        </button>
+        <button
+          type="button"
+          className="cart-button"
+          onClick={() => {
+            dispatch(redirectToCart());
+          }}
+        >
           <img src={cartIcon} className="shopping-cart" alt="shopping-cart" />
-          Cart(
-          {cart.length}
+          Cart (
+          {cart.books.length}
           )
         </button>
       </div>
