@@ -21,11 +21,15 @@ const defaultState = {
     error: null,
   },
   book: {
+    details: {},
     isActive: false,
     isLoading: false,
     error: null,
   },
-  cart: [],
+  cart: {
+    isActive: false,
+    books: [],
+  },
   error: null,
 };
 

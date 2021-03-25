@@ -16,14 +16,24 @@
     justify-content: space-between;
 }
 
+.to-main-button {
+background-color: inherit;
+border: none;
+display: flex;
+align-items: center;
+outline: none;
+}
+
 .cart-button {
 background-color: inherit;
 border: none;
 display: flex;
 align-items: center;
+outline: none;
 }
 
 .shopping-cart {
 
 width: 30px;
+margin: 10px;
 }

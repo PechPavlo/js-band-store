@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import BookCard from '../BookCard/BookCard';
+import BookDetails from '../BookDetails/BookDetails';
 import './Main.scss';
 
 const Main = () => {
@@ -22,7 +23,9 @@ const Main = () => {
   const handleSeach = (event) => {
     setSearchValue(event.target.value);
     const title = event.target.value.toLowerCase();
-    setFilteredBySearch(filteredByPrice.filter((el) => el.title.toLowerCase().includes(title)));
+    setFilteredBySearch(
+      filteredByPrice.filter((el) => el.title.toLowerCase().includes(title)),
+    );
   };
 
   const handleSeachFocus = () => {
@@ -41,13 +44,24 @@ const Main = () => {
 
   return (
     <div className="main">
+      {!book.isActive && (
       <div className="main-controls">
         <label htmlFor="book-seach">
-          <input list="books-list" name="browser" id="book-seach" placeholder="search" value={searchValue} onChange={handleSeach} onFocus={handleSeachFocus} />
+          <input
+            list="books-list"
+            name="browser"
+            id="book-seach"
+            placeholder="search"
+            value={searchValue}
+            onChange={handleSeach}
+            onFocus={handleSeachFocus}
+          />
 
           <datalist id="books-list">
             {filteredByPrice.map((cardBook) => (
-              <option value={cardBook.title} key={cardBook.id}> </option>
+              <option value={cardBook.title} key={cardBook.id}>
+                {' '}
+              </option>
             ))}
           </datalist>
         </label>
@@ -60,16 +74,18 @@ const Main = () => {
           </select>
         </label>
       </div>
+      )}
       <div className="main-content">
         {!book.isActive && (
           <ul className="book-list">
             {filteredBySearch.map((cardBook) => (
               <li key={cardBook.id}>
-                <BookCard book={cardBook} />
+                <BookCard cardBook={cardBook} />
               </li>
             ))}
           </ul>
         )}
+        {book.isActive && <BookDetails />}
       </div>
       <hr />
     </div>
