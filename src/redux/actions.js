@@ -131,6 +131,10 @@ export const redirectToCart = () => ({
   type: 'REDIRECT_TO_CART',
 });
 
+export const closePurchaseModal = () => ({
+  type: 'CLOSE_PURCHASE_MODAL',
+});
+
 export const addToCart = (books) => ({
   type: 'ADD_TO_CART',
   payload: books,

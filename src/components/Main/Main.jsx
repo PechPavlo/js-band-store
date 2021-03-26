@@ -89,7 +89,6 @@ const Main = () => {
         {book.isActive && <BookDetails />}
         {cart.isActive && <Cart />}
       </div>
-      <hr />
     </div>
   );
 };

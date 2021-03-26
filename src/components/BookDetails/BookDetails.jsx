@@ -6,7 +6,7 @@ import './BookDetails.scss';
 
 const BookDetails = () => {
   const { book, cart } = useSelector((state) => state);
-  const [bookCount, setBookCount] = useState('');
+  const [bookCount, setBookCount] = useState('1');
   const [overCountMessage, setOverCountMessage] = useState('');
   const dispatch = useDispatch();
   const booksInCart = cart.books.reduce((acc, el) => (el === book.details.id ? acc + 1 : acc), 0);
@@ -60,7 +60,7 @@ const BookDetails = () => {
               name="book-count"
               min="0"
               max={maxBookCount}
-              value={+bookCount || ''}
+              value={+bookCount}
               onChange={handlerCountChange}
             />
           </label>

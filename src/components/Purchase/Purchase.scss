@@ -1,0 +1,21 @@
+@import '../../assets/style/colors.scss';
+
+
+.purchase-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top     : 0;
+    left    : 0;
+    width   : 100vw;
+    height  : 100vh;
+    background-color: rgba(128, 128, 128, 0.527);
+}
+
+.purchase {
+    min-height: 400px;
+    background-color: $primary-color;
+    padding: 20px;
+    border-radius: 10px;
+}

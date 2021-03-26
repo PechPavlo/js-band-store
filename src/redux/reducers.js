@@ -114,7 +114,6 @@ const reducer = (state, action) => {
         },
         cart: {
           ...state.cart,
-          isActive: false,
           books: [],
         },
       };
@@ -153,6 +152,21 @@ const reducer = (state, action) => {
         cart: {
           ...state.cart,
           isActive: true,
+        },
+      };
+
+    case 'CLOSE_PURCHASE_MODAL':
+      return {
+        ...state,
+        purchase: {
+          ...state.purchase,
+          isActive: false,
+          message: null,
+          books: [],
+        },
+        cart: {
+          ...state.cart,
+          isActive: false,
         },
       };
 
