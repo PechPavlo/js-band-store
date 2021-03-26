@@ -30,6 +30,13 @@ const defaultState = {
     isActive: false,
     books: [],
   },
+  purchase: {
+    isActive: false,
+    isLoading: false,
+    books: [],
+    message: null,
+    error: null,
+  },
   error: null,
 };
 

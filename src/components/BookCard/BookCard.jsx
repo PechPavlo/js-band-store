@@ -24,7 +24,6 @@ const BookCard = (props) => {
           type="button"
           onClick={() => {
             dispatch(getBookDetails(user.token, cardBook.id));
-            // console.log('book view', user.token, cardBook.id);
           }}
         >
           View

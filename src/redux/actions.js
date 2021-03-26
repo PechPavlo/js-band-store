@@ -90,6 +90,39 @@ export const authorizeUser = (userName) => (dispatch) => {
     .catch((error) => dispatch(authorizeUserFailure(error.message)));
 };
 
+export const purchaseBooksStarted = () => ({
+  type: 'PURCHASE_BOOKS_STARTED',
+});
+
+export const purchaseBooksSuccess = (message) => ({
+  type: 'PURCHASE_BOOKS_SUCCESS',
+  payload: message,
+});
+
+export const purchaseBooksFailure = (error) => ({
+  type: 'PURCHASE_BOOKS_FAILURE',
+  payload: {
+    error,
+  },
+});
+
+export const purchaseBooks = (token, books) => (dispatch) => {
+  dispatch(purchaseBooksStarted());
+  axios
+    .post('purchase',
+      {
+        books: [...books],
+      }, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+    .then((res) => {
+      dispatch(purchaseBooksSuccess(res.data));
+    })
+    .catch((error) => dispatch(purchaseBooksFailure(error.message)));
+};
+
 export const redirectToMain = () => ({
   type: 'REDIRECT_TO_MAIN',
 });
@@ -98,8 +131,9 @@ export const redirectToCart = () => ({
   type: 'REDIRECT_TO_CART',
 });
 
-export const addToCart = (book) => ({
+export const addToCart = (books) => ({
   type: 'ADD_TO_CART',
+  payload: books,
 });
 
 export const signOut = () => ({
