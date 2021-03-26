@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import BookCard from '../BookCard/BookCard';
+import Cart from '../Cart/Cart';
 import BookDetails from '../BookDetails/BookDetails';
 import './Main.scss';
 
 const Main = () => {
-  const { booksCatalog, book } = useSelector((state) => state);
+  const { booksCatalog, book, cart } = useSelector((state) => state);
   const [filteredByPrice, setFilteredByPrice] = useState([]);
   const [filteredBySearch, setFilteredBySearch] = useState([]);
   const [searchValue, setSearchValue] = useState([]);
@@ -44,7 +45,7 @@ const Main = () => {
 
   return (
     <div className="main">
-      {!book.isActive && (
+      {!book.isActive && !cart.isActive && (
       <div className="main-controls">
         <label htmlFor="book-seach">
           <input
@@ -76,7 +77,7 @@ const Main = () => {
       </div>
       )}
       <div className="main-content">
-        {!book.isActive && (
+        {!book.isActive && !cart.isActive && (
           <ul className="book-list">
             {filteredBySearch.map((cardBook) => (
               <li key={cardBook.id}>
@@ -86,6 +87,7 @@ const Main = () => {
           </ul>
         )}
         {book.isActive && <BookDetails />}
+        {cart.isActive && <Cart />}
       </div>
       <hr />
     </div>

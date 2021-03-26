@@ -61,6 +61,7 @@ const reducer = (state, action) => {
           error: action.payload.error,
         },
       };
+
     case 'GET_BOOK_DETAILS_STARTED':
       return {
         ...state,
@@ -92,6 +93,42 @@ const reducer = (state, action) => {
         },
       };
 
+    case 'PURCHASE_BOOKS_STARTED':
+      return {
+        ...state,
+        purchase: {
+          ...state.purchase,
+          isLoading: true,
+          error: null,
+        },
+      };
+
+    case 'PURCHASE_BOOKS_SUCCESS':
+      return {
+        ...state,
+        purchase: {
+          ...state.purchase,
+          isActive: true,
+          isLoading: false,
+          message: action.payload,
+        },
+        cart: {
+          ...state.cart,
+          isActive: false,
+          books: [],
+        },
+      };
+
+    case 'PURCHASE_BOOKS_FAILURE':
+      return {
+        ...state,
+        purchase: {
+          ...state.purchase,
+          isLoading: false,
+          error: action.payload.error,
+        },
+      };
+
     case 'REDIRECT_TO_MAIN':
       return {
         ...state,
@@ -109,6 +146,10 @@ const reducer = (state, action) => {
     case 'REDIRECT_TO_CART':
       return {
         ...state,
+        book: {
+          ...state.book,
+          isActive: false,
+        },
         cart: {
           ...state.cart,
           isActive: true,
@@ -118,9 +159,24 @@ const reducer = (state, action) => {
     case 'ADD_TO_CART':
       return {
         ...state,
+        book: {
+          ...state.book,
+          isActive: false,
+        },
         cart: {
           ...state.cart,
           isActive: true,
+          books: [
+            ...state.cart.books,
+            ...action.payload,
+          ],
+        },
+        purchase: {
+          ...state.purchase,
+          books: [
+            ...state.purchase.books,
+            ...action.payload,
+          ],
         },
       };
 

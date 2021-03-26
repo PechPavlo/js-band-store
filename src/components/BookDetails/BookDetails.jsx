@@ -5,12 +5,26 @@ import tagsIcon from '../../assets/image/icon/tags.svg';
 import './BookDetails.scss';
 
 const BookDetails = () => {
-  const { book } = useSelector((state) => state);
+  const { book, cart } = useSelector((state) => state);
   const [bookCount, setBookCount] = useState('');
+  const [overCountMessage, setOverCountMessage] = useState('');
   const dispatch = useDispatch();
+  const booksInCart = cart.books.reduce((acc, el) => (el === book.details.id ? acc + 1 : acc), 0);
+  const maxBookCount = book.details.count - booksInCart;
+  const booksToAdd = Array(+bookCount).fill(book.details.id);
   const tags = book.details.tags
     .map((tag) => tag[0].toUpperCase() + tag.slice(1))
     .join(', ');
+
+  const handlerCountChange = (event) => {
+    if (event.target.value <= maxBookCount) {
+      setBookCount(event.target.value);
+      setOverCountMessage('');
+    } else {
+      setOverCountMessage(`-   max limit ${maxBookCount}`);
+    }
+  };
+
   return (
     <div className="book-details-container">
       <div className="book-details">
@@ -39,15 +53,15 @@ const BookDetails = () => {
             <p>{book.details.price}</p>
           </div>
           <label className="book-count-label" htmlFor="book-count">
-            Count
+            {`Count    ${overCountMessage}`}
             <input
               type="number"
               id="book-count"
               name="book-count"
               min="0"
-              max={book.details.count}
+              max={maxBookCount}
               value={+bookCount || ''}
-              onChange={(event) => setBookCount(event.target.value)}
+              onChange={handlerCountChange}
             />
           </label>
           <div className="book-details-cart_total-price">
@@ -68,7 +82,7 @@ const BookDetails = () => {
               className="book-details_cart-button"
               type="button"
               onClick={() => {
-                dispatch(addToCart());
+                dispatch(addToCart(booksToAdd));
               }}
             >
               Add To Cart

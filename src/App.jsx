@@ -7,14 +7,11 @@ import Main from './components/Main/Main';
 
 function App() {
   const dispatch = useDispatch();
-  const { isLoading, user, booksCatalog } = useSelector((state) => state);
+  const { isLoading, user } = useSelector((state) => state);
 
   useEffect(() => {
     if (user.isAuthorized) dispatch(getBooksCatalog(user.token));
-    // console.log('app user', user);
   }, []);
-
-  // console.log('app', booksCatalog);
 
   if (isLoading) {
     return (
@@ -27,7 +24,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <h1>JS Band Store</h1> */}
       {!user.isAuthorized && <LoginPage />}
       {user.isAuthorized && <Header />}
       {user.isAuthorized && <Main />}
