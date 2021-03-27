@@ -123,12 +123,12 @@ export const purchaseBooks = (token, books) => (dispatch) => {
     .catch((error) => dispatch(purchaseBooksFailure(error.message)));
 };
 
-export const redirectToMain = () => ({
-  type: 'REDIRECT_TO_MAIN',
+export const resetError = () => ({
+  type: 'RESET_ERROR',
 });
 
-export const redirectToCart = () => ({
-  type: 'REDIRECT_TO_CART',
+export const closePurchaseModal = () => ({
+  type: 'CLOSE_PURCHASE_MODAL',
 });
 
 export const addToCart = (books) => ({

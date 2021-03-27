@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBookDetails } from '../../redux/actions';
 import './BookCard.scss';
@@ -8,6 +9,7 @@ const BookCard = (props) => {
   const { cardBook } = props;
   const { user } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const history = useHistory();
   return (
     <article className="book-card">
       <div className="book-card_image-container">
@@ -24,6 +26,7 @@ const BookCard = (props) => {
           type="button"
           onClick={() => {
             dispatch(getBookDetails(user.token, cardBook.id));
+            history.push(`/js-band-store/catalog/${cardBook.id}`);
           }}
         >
           View

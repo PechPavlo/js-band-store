@@ -8,6 +8,8 @@ const reducer = (state, action) => {
           isAuthorized: false,
           error: null,
         },
+        error: null,
+        message: null,
       };
 
     case 'AUTHORIZE_USER_SUCCESS':
@@ -30,6 +32,7 @@ const reducer = (state, action) => {
           isAuthorized: true,
           error: action.payload.error,
         },
+        error: action.payload.error,
       };
 
     case 'GET_BOOK_CATALOG_STARTED':
@@ -40,6 +43,8 @@ const reducer = (state, action) => {
           isLoading: true,
           error: null,
         },
+        error: null,
+        message: null,
       };
 
     case 'GET_BOOK_CATALOG_SUCCESS':
@@ -60,6 +65,8 @@ const reducer = (state, action) => {
           isLoading: false,
           error: action.payload.error,
         },
+        error: action.payload.error,
+        message: 'You should reauthorize.',
       };
 
     case 'GET_BOOK_DETAILS_STARTED':
@@ -70,6 +77,8 @@ const reducer = (state, action) => {
           isLoading: true,
           error: null,
         },
+        error: null,
+        message: null,
       };
 
     case 'GET_BOOK_DETAILS_SUCCESS':
@@ -77,7 +86,6 @@ const reducer = (state, action) => {
         ...state,
         book: {
           ...state.book,
-          isActive: true,
           isLoading: false,
           details: action.payload,
         },
@@ -91,6 +99,7 @@ const reducer = (state, action) => {
           isLoading: false,
           error: action.payload.error,
         },
+        error: action.payload.error,
       };
 
     case 'PURCHASE_BOOKS_STARTED':
@@ -101,6 +110,7 @@ const reducer = (state, action) => {
           isLoading: true,
           error: null,
         },
+        error: null,
       };
 
     case 'PURCHASE_BOOKS_SUCCESS':
@@ -114,7 +124,6 @@ const reducer = (state, action) => {
         },
         cart: {
           ...state.cart,
-          isActive: false,
           books: [],
         },
       };
@@ -127,45 +136,31 @@ const reducer = (state, action) => {
           isLoading: false,
           error: action.payload.error,
         },
+        error: action.payload.error,
       };
 
-    case 'REDIRECT_TO_MAIN':
+    case 'RESET_ERROR':
       return {
         ...state,
-        book: {
-          ...state.book,
-          details: {},
-          isActive: false,
-        },
-        cart: {
-          ...state.cart,
-          isActive: false,
-        },
+        error: null,
       };
 
-    case 'REDIRECT_TO_CART':
+    case 'CLOSE_PURCHASE_MODAL':
       return {
         ...state,
-        book: {
-          ...state.book,
+        purchase: {
+          ...state.purchase,
           isActive: false,
-        },
-        cart: {
-          ...state.cart,
-          isActive: true,
+          message: null,
+          books: [],
         },
       };
 
     case 'ADD_TO_CART':
       return {
         ...state,
-        book: {
-          ...state.book,
-          isActive: false,
-        },
         cart: {
           ...state.cart,
-          isActive: true,
           books: [
             ...state.cart.books,
             ...action.payload,
