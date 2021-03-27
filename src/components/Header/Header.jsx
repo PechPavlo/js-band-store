@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { signOut, redirectToMain, redirectToCart } from '../../redux/actions';
+import { NavLink } from 'react-router-dom';
+import { signOut } from '../../redux/actions';
 import './Header.scss';
 import cartIcon from '../../assets/image/icon/shopping-cart.svg';
 
@@ -22,27 +23,16 @@ const Header = () => {
       </div>
       <hr />
       <div className="header-cart">
-        <button
-          className="to-main-button"
-          type="button"
-          onClick={() => {
-            dispatch(redirectToMain());
-          }}
-        >
+        <NavLink activeClassName="nav_link-active" className="to-main-button" to="/js-band-store/catalog">
           <h1>JS Band Store</h1>
-        </button>
-        <button
-          type="button"
-          className="cart-button"
-          onClick={() => {
-            dispatch(redirectToCart());
-          }}
-        >
+        </NavLink>
+        <NavLink activeClassName="nav_link-active" className="cart-button" to="/js-band-store/cart">
+          {' '}
           <img src={cartIcon} className="shopping-cart" alt="shopping-cart" />
           Cart (
           {cart.books.length}
           )
-        </button>
+        </NavLink>
       </div>
       <hr />
     </div>
