@@ -80,7 +80,7 @@ const BookDetails = () => {
               type="number"
               id="book-count"
               name="book-count"
-              min="0"
+              min="1"
               max={maxBookCount}
               value={+bookCount}
               onChange={handlerCountChange}
