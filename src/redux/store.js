@@ -22,12 +22,12 @@ const defaultState = {
   },
   book: {
     details: {},
-    isActive: false,
+    // isActive: false,
     isLoading: false,
     error: null,
   },
   cart: {
-    isActive: false,
+    // isActive: false,
     books: [],
   },
   purchase: {
@@ -38,6 +38,7 @@ const defaultState = {
     error: null,
   },
   error: null,
+  message: null,
 };
 
 const composeEnhancers = typeof window === 'object'

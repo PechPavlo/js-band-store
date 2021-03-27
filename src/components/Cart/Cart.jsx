@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { redirectToMain, purchaseBooks } from '../../redux/actions';
+import { purchaseBooks } from '../../redux/actions';
 import CartTable from '../CartTable/CartTable';
 import Purchase from '../Purchase/Purchase';
 import cartIcon from '../../assets/image/icon/shopping-cart.svg';
@@ -14,15 +14,6 @@ const Cart = () => {
     <div className="cart-container">
       <div className="cart">
         <div className="cart-controls">
-          <button
-            className="cart_to-catalog_button"
-            type="button"
-            onClick={() => {
-              dispatch(redirectToMain());
-            }}
-          >
-            Back To Catalog
-          </button>
           <button
             className="cart_purchase-button"
             type="button"

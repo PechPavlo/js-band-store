@@ -13,7 +13,7 @@ const CartTable = () => {
     );
     const currentPrice = currentBook.price;
     const currentName = currentBook.title;
-    const currentTotalPrice = currentPrice * countInCart;
+    const currentTotalPrice = +(currentPrice * countInCart).toFixed(2);
     return {
       currentName,
       countInCart,
