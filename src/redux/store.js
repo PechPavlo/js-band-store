@@ -5,7 +5,7 @@ import reducer from './reducers';
 
 const initUser = localStorage.pechPavloBookStore && JSON.parse(localStorage.pechPavloBookStore);
 
-const defaultState = {
+export const defaultState = {
   isLoading: false,
   user: {
     isAuthorized: !!initUser,
@@ -22,12 +22,10 @@ const defaultState = {
   },
   book: {
     details: {},
-    // isActive: false,
     isLoading: false,
     error: null,
   },
   cart: {
-    // isActive: false,
     books: [],
   },
   purchase: {
