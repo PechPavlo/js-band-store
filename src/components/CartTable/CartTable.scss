@@ -1,0 +1,52 @@
+@import '../../assets/style/colors.scss';
+
+
+table {
+    border-collapse: collapse;
+    line-height    : 1.1;
+    font-family    : "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color          : #0C213B;
+    margin         : 2rem auto;
+    max-width      : 1200px;
+    width          : 95vw;
+}
+
+th {
+    border          : 2px solid $secondary-color;
+    background-color: whitesmoke;
+    height          : 2rem;
+    text-align      : start;
+    padding         : 0.6rem;
+}
+
+td {
+    border : 2px solid $secondary-color;
+    height : 2rem;
+    padding: 0.6rem;
+}
+
+td:first-child {
+    width: 500px;
+    color: rgb(45, 68, 68);
+}
+
+td:nth-child(2),
+td:nth-child(3) {
+    width: 50px;
+}
+
+td:last-child {
+    width: 100px;
+}
+
+tbody {
+    tr:nth-child(even) {
+        background-color: $secondary-color;
+    }
+}
+
+.cart-cart_total-price {
+    text-align: end;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
