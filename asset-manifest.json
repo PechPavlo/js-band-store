@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/js-band-store/static/css/main.79eb3383.chunk.css",
+    "main.css": "/js-band-store/static/css/main.a5b4112d.chunk.css",
     "main.js": "/js-band-store/static/js/main.0eda6bff.chunk.js",
     "main.js.map": "/js-band-store/static/js/main.0eda6bff.chunk.js.map",
     "runtime-main.js": "/js-band-store/static/js/runtime-main.f08faff7.js",
@@ -8,7 +8,7 @@
     "static/js/2.3151017b.chunk.js": "/js-band-store/static/js/2.3151017b.chunk.js",
     "static/js/2.3151017b.chunk.js.map": "/js-band-store/static/js/2.3151017b.chunk.js.map",
     "index.html": "/js-band-store/index.html",
-    "static/css/main.79eb3383.chunk.css.map": "/js-band-store/static/css/main.79eb3383.chunk.css.map",
+    "static/css/main.a5b4112d.chunk.css.map": "/js-band-store/static/css/main.a5b4112d.chunk.css.map",
     "static/js/2.3151017b.chunk.js.LICENSE.txt": "/js-band-store/static/js/2.3151017b.chunk.js.LICENSE.txt",
     "static/media/search.207a0bfb.svg": "/js-band-store/static/media/search.207a0bfb.svg",
     "static/media/shopping-cart.a96af164.svg": "/js-band-store/static/media/shopping-cart.a96af164.svg",
@@ -17,7 +17,7 @@
   "entrypoints": [
     "static/js/runtime-main.f08faff7.js",
     "static/js/2.3151017b.chunk.js",
-    "static/css/main.79eb3383.chunk.css",
+    "static/css/main.a5b4112d.chunk.css",
     "static/js/main.0eda6bff.chunk.js"
   ]
 }
