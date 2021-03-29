@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authorizeUser } from '../../redux/actions';
+import defaultUser from '../../assets/image/default-avatar.jpg';
 import './LoginPage.scss';
 
 const LoginPage = () => {
@@ -19,28 +20,31 @@ const LoginPage = () => {
     }
   };
   return (
-    <div className="login-page">
-      <h2>JS Band Store</h2>
-      <form id="authorization" onSubmit={haldleFormSubmit}>
-        {!isNameValid && (
-          <span className="name-error">Username is not valid</span>
-        )}
-        <label htmlFor="name-input">
-          Name
-          <input
-            id="name-input"
-            placeholder="Event name"
-            type="text"
-            required
-            value={inputValue}
-            onChange={(event) => {
-              setIsNameValid(true);
-              setInputValue(event.target.value);
-            }}
-          />
-        </label>
-        <button type="submit">Log In</button>
-      </form>
+    <div className="login-page-wrapper">
+      <div className="login-page">
+        <img src={defaultUser} className="default-user" alt="defaul user" />
+        <h2>JS Band Store</h2>
+        <form id="authorization" onSubmit={haldleFormSubmit}>
+          <label htmlFor="name-input">
+            Name
+            <input
+              id="name-input"
+              placeholder="Name"
+              type="text"
+              required
+              value={inputValue}
+              onChange={(event) => {
+                setIsNameValid(true);
+                setInputValue(event.target.value);
+              }}
+            />
+            {!isNameValid && (
+            <span className="name-error">Username is not valid</span>
+            )}
+          </label>
+          <button type="submit">Log In</button>
+        </form>
+      </div>
     </div>
   );
 };

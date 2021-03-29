@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import BookCard from '../BookCard/BookCard';
+import searchImage from '../../assets/image/icon/search.svg';
 import './Main.scss';
 
 const Main = () => {
@@ -44,7 +45,8 @@ const Main = () => {
   return (
     <div className="main">
       <div className="main-controls">
-        <label htmlFor="book-seach">
+        <label htmlFor="book-seach" className="book-seach-lable">
+          <img src={searchImage} alt="search" />
           <input
             list="books-list"
             name="browser"
