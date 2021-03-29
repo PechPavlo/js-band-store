@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/js-band-store/static/css/main.b80f1996.chunk.css",
-    "main.js": "/js-band-store/static/js/main.ea0a206b.chunk.js",
-    "main.js.map": "/js-band-store/static/js/main.ea0a206b.chunk.js.map",
+    "main.css": "/js-band-store/static/css/main.2662c8f3.chunk.css",
+    "main.js": "/js-band-store/static/js/main.0eda6bff.chunk.js",
+    "main.js.map": "/js-band-store/static/js/main.0eda6bff.chunk.js.map",
     "runtime-main.js": "/js-band-store/static/js/runtime-main.f08faff7.js",
     "runtime-main.js.map": "/js-band-store/static/js/runtime-main.f08faff7.js.map",
     "static/js/2.3151017b.chunk.js": "/js-band-store/static/js/2.3151017b.chunk.js",
     "static/js/2.3151017b.chunk.js.map": "/js-band-store/static/js/2.3151017b.chunk.js.map",
     "index.html": "/js-band-store/index.html",
-    "static/css/main.b80f1996.chunk.css.map": "/js-band-store/static/css/main.b80f1996.chunk.css.map",
+    "static/css/main.2662c8f3.chunk.css.map": "/js-band-store/static/css/main.2662c8f3.chunk.css.map",
     "static/js/2.3151017b.chunk.js.LICENSE.txt": "/js-band-store/static/js/2.3151017b.chunk.js.LICENSE.txt",
+    "static/media/search.207a0bfb.svg": "/js-band-store/static/media/search.207a0bfb.svg",
     "static/media/shopping-cart.a96af164.svg": "/js-band-store/static/media/shopping-cart.a96af164.svg",
     "static/media/tags.a8ecab46.svg": "/js-band-store/static/media/tags.a8ecab46.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.f08faff7.js",
     "static/js/2.3151017b.chunk.js",
-    "static/css/main.b80f1996.chunk.css",
-    "static/js/main.ea0a206b.chunk.js"
+    "static/css/main.2662c8f3.chunk.css",
+    "static/js/main.0eda6bff.chunk.js"
   ]
 }
