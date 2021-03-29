@@ -1,0 +1,61 @@
+@import '../../assets/style/colors.scss';
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 320px;
+    height: 550px;
+    margin: 15px;
+    padding: 20px;
+    border: 1px solid cadetblue;
+    &:hover {
+        -webkit-box-shadow: 6px 6px 10px 0px rgba(34, 60, 80, 0.2);
+        -moz-box-shadow   : 6px 6px 10px 0px rgba(34, 60, 80, 0.2);
+        box-shadow        : 6px 6px 10px 0px rgba(34, 60, 80, 0.2);
+    }
+}
+
+.book-card_image-container {
+    height: 67%;
+    width: 99%;
+    margin: 0 auto;
+    text-align: center;
+    img {
+        height: 100%;
+        max-width: 95%;
+    }
+}
+
+.book-card_title {
+    line-height: 1.7rem;
+    font-size: 1.4rem;
+}
+
+.book-card_subtitle {
+    margin-top: 0.9rem;
+    line-height: 1.4rem;
+    font-size: 1.1rem;
+}
+.book-card-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.book-card_price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: $btn_hover-color;
+}
+
+.book-card_button {
+padding: 0.5rem 1.6rem;
+}
+
+.book-card_price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: $btn_hover-color;
+}

@@ -1,0 +1,42 @@
+@import '../../assets/style/colors.scss';
+
+
+.purchase-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top     : 0;
+    left    : 0;
+    width   : 100vw;
+    height  : 100vh;
+    background-color: rgba(128, 128, 128, 0.527);
+}
+
+.purchase {
+    min-height: 400px;
+    background-color: $primary-color;
+    padding: 20px;
+    border-radius: 10px;
+    p{
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+}
+
+.purchase-controls {
+display: flex;
+justify-content: flex-end;
+align-items: center;
+padding: 2rem;
+}
+
+#purchase_close-button {
+    background: none;
+    border: none;
+    outline: none;
+    text-decoration: underline;
+    &:hover{
+        box-shadow: none;
+    }
+}
